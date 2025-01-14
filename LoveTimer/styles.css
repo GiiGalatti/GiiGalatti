@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Harrington', cursive; /* Fonte Harrington */
+    background: linear-gradient(45deg, #FF69B4, #5a0733); /* Gradiente de fundo suave e romântico */
+    color: #fff; /* Cor da fonte agora é branco */
+    text-align: center;
+    padding: 0;
+    overflow: hidden; /* Evitar que o conteúdo ultrapasse a tela */
+    position: relative;
+    height: 100vh;
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 100px; /* Distância do topo */
+}
+
+.title {
+    font-size: 3.2em; /* Tamanho maior para o título */
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    letter-spacing: 2px;
+}
+
+.photo-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* Espaço entre as divs de foto */
+    margin-bottom: 30px;
+}
+
+.photo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Transição suave ao passar o mouse */
+}
+
+.photo-1 {
+    transform: rotate(-25deg);
+}
+
+.photo-2 {
+    transform: rotate(35deg);
+}
+
+.photo-3 {
+    transform: rotate(-25deg);
+}
+
+.timer {
+    font-size: 2em; /* Tamanho maior para o timer */
+    margin-top: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.timer p {
+    margin: 15px 0;
+}
+
+/* Animação de corações caindo com fade, iniciando do topo */
+@keyframes heart-fade-fall {
+    0% {
+        transform: translateY(-100px); /* Inicia do topo */
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh); /* Cai até o final da tela */
+        opacity: 0;
+    }
+}
+
+.heart {
+    position: absolute;
+    font-size: 70px; /* Aumentando o tamanho dos corações */
+    color: red; /* Cor dos corações agora é vermelha */
+    animation: heart-fade-fall 6s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+    top: 0; /* Assegura que o coração começará do topo */
+}
+
+@keyframes heart-fall {
+    0% {
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh);
+    }
+}
+
+.heart {
+    animation: heart-fall 6s ease-in infinite;
+    font-size: 70px; /* Aumentando o tamanho dos corações */
+    opacity: 0.8;
+    animation-timing-function: ease-out;
+}
+
+.heart:nth-child(even) {
+    animation-duration: 4s;
+}
+
+.heart:nth-child(odd) {
+    animation-duration: 7s;
+}
